@@ -1,0 +1,564 @@
+################################################################################
+# Colors and Styles
+################################################################################
+colors:
+  # Snow Forecasting Color Scheme
+  snow_forecasting:
+    critical_period: "#66c2a5"       # Blue
+    data: "#e41a1c"                  # Purple
+    forecast: "#377eb8"              # Orange
+    communication: "#4daf4a"          # Green
+
+  # Hydrological Forecasting Color Scheme
+  hydrological_forecasting:
+    critical_period: "#8da0cb"        # Yellow
+    data: "#e41a1c"                  # Purple
+    forecast: "#377eb8"              # Orange
+    communication: "#4daf4a"          # Green
+
+  # River Ice Monitoring Color Scheme
+  river_ice_monitoring:
+    critical_period: "#b3b3b3"       # Gray
+    data: "#e41a1c"                  # Purple
+    forecast: "#377eb8"              # Orange
+    communication: "#4daf4a"          # Green
+
+  # Planning and Improvement Color Scheme
+  planning_and_improvement:
+    critical_period: "#e5c494"        # Yellow
+    admin: "#bebada"                  # Purple
+    capacity: "#8dd3c7"                # Green
+    block: "#000000"                  # Black
+
+  # Visualization and Other Elements
+  visualization:
+    snow_survey: "#e41a1c"             # Red
+    snow_bulletin: "#4daf4a"           # Green
+    streamflow: "#984ea3"             # Red
+    swe: "#0000FF"                   # Blue
+
+styles:
+  # Line Styles
+  solid:
+    linestyle: "-"
+    linewidth: 3
+
+  dashed:
+    linestyle: "--"
+    linewidth: 3
+
+  dotted:
+    linestyle: ":"
+    linewidth: 3
+
+  dashdot:
+    linestyle: "-."
+    linewidth: 3
+
+  # Marker Styles
+  downward_triangle:
+    marker: "v"
+    markersize: 10
+    markeredgewidth: 2
+    markerfacecolor: "visualization.snow_survey"  # Reference to color
+
+  diamond:
+    marker: "P"
+    markersize: 10
+    markeredgewidth: 2
+    markerfacecolor: "visualization.snow_bulletin"  # Reference to color
+
+################################################################################
+# Month Ranges
+################################################################################
+month_ranges:
+  Jan: [1, 31]
+  Feb: [32, 59]
+  Mar: [60, 90]
+  Apr: [91, 120]
+  May: [121, 151]
+  Jun: [152, 181]
+  Jul: [182, 212]
+  Aug: [213, 243]
+  Sep: [244, 273]
+  Oct: [274, 304]
+  Nov: [305, 334]
+  Dec: [335, 365]
+
+sectors:
+  Jan: 1
+  Feb: 1
+  Mar: 1
+  Apr: 1
+  May: 1
+  Jun: 1
+  Jul: 1
+  Aug: 1
+  Sep: 1
+  Oct: 1
+  Nov: 1
+  Dec: 1
+
+################################################################################
+# Track Configurations
+################################################################################
+track_configs:
+
+  # Snow Seasonal Forecasting
+  snow_based_seasonal_forecasts_critical:
+    type: "infill"
+    color: "snow_forecasting.critical_period"
+    alpha: 0.5
+    r_start: 84
+    r_end: 100
+    months: ["Mar", "Apr", "May"]
+  
+  snow_based_seasonal_forecasts_total:
+    type: "infill"
+    color: "snow_forecasting.critical_period"
+    alpha: 0.2
+    r_start: 84
+    r_end: 100
+    months: ["Dec", "Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul"]
+
+  automated_station_data:
+    type: "line"
+    color: "snow_forecasting.data"
+    linestyle: "dashed"
+    linewidth: 3
+    r_start: 97
+    r_end: 99
+    months: ["Dec", "Jan", "Feb", "Mar", "Apr", "May"]
+
+  large_domain_snow_products:
+    type: "line"
+    color: "snow_forecasting.data"
+    linestyle: "dotted"
+    linewidth: 3
+    r_start: 95
+    r_end: 97
+    months: ["Dec", "Jan", "Feb", "Mar", "Apr", "May"]
+  
+  temperature_outlook:
+    type: "line"
+    color: "snow_forecasting.data"
+    linestyle: "dashdot"
+    linewidth: 3
+    r_start: 93
+    r_end: 95
+    months: ["Dec", "Jan", "Feb", "Mar", "Apr", "May"]
+
+  snow_based_forecast:
+    type: "line"
+    color: "snow_forecasting.forecast"
+    linestyle: "-"
+    linewidth: 3
+    r_start: 89
+    r_end: 91
+    months: ["Mar", "Apr", "May", "Jun", "Jul"]
+
+  snowpack_outlook:
+    type: "line"
+    color: "snow_forecasting.communication"
+    linestyle: "--"
+    linewidth: 5
+    r_start: 87
+    r_end: 89
+    months: ["May"]
+
+  snow_surveys:
+    type: "marker"
+    color: "visualization.snow_survey"
+    marker: "v"
+    markersize: 10
+    linewidth: 3
+    months: ["Mar", "Apr", "May"]
+    r_points:
+      Mar: 89
+      Apr: 87
+      May: 85
+    position: 0
+
+  #################################################################################
+  # Hydrological Short Term
+  #################################################################################
+  hydrological_critical_period:
+    type: "infill"
+    color: "hydrological_forecasting.critical_period"
+    alpha: 0.5
+    r_start: 63
+    r_end: 80
+    months: ["Apr", "May", "Jul","Aug"]
+  
+  hydrological_total:
+    type: "infill"
+    color: "hydrological_forecasting.critical_period"
+    alpha: 0.2
+    r_start: 63
+    r_end: 80
+    months: ["Oct", "Nov", "Dec", "Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep"]
+
+  hydrometric_observations:
+    type: "line"
+    color: "hydrological_forecasting.data"
+    linestyle: "-"
+    linewidth: 3
+    r_start: 77
+    r_end: 79
+    months: ["Oct", "Nov", "Dec", "Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep"]
+  
+  nwp_forecasts:
+    type: "line"
+    color: "hydrological_forecasting.data"
+    linestyle: "dashed"
+    linewidth: 3
+    r_start: 75
+    r_end: 77
+    months: ["Oct", "Nov", "Dec", "Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep"]
+
+  meterologist_input:
+    type: "line"
+    color: "hydrological_forecasting.data"
+    linestyle: "dotted"
+    linewidth: 3
+    r_start: 73
+    r_end: 75
+    months: ["Oct", "Nov", "Dec", "Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep"]
+
+  hydrologic_short_term_chps:
+    type: "line"
+    color: "hydrological_forecasting.forecast"
+    linestyle: "dashed"
+    linewidth: 3
+    r_start: 71
+    r_end: 73
+    months: [ "Oct", "Nov", "Dec", "Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep"]
+  
+  hydrologic_short_term_hefs:
+    type: "line"
+    color: "hydrological_forecasting.forecast"
+    linestyle: "dotted"
+    linewidth: 3
+    r_start: 71
+    r_end: 73
+    months: [ "Oct", "Nov", "Dec", "Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep"]
+
+  hydrologic_medium_term_outlook:
+    type: "line"
+    color: "hydrological_forecasting.forecast"
+    linestyle: "dashdot"
+    linewidth: 3
+    r_start: 69
+    r_end: 71
+    months: [ "Oct", "Nov", "Dec", "Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep"]
+
+  portal_communication:
+    type: "line"
+    color: "hydrological_forecasting.communication"
+    linestyle: "dotted"
+    linewidth: 3
+    r_start: 67
+    r_end: 69
+    months: [ "Oct", "Nov", "Dec", "Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep"]
+
+  event_based_communication:
+    type: "line"
+    color: "hydrological_forecasting.communication"
+    linestyle: "dashed"
+    linewidth: 3
+    r_start: 65
+    r_end: 67
+    months: ["Feb", "Mar", "Apr", "May", "Aug", "Jul"]
+
+  usace_communication:
+    type: "line"
+    color: "hydrological_forecasting.communication"
+    linestyle: "dashdot"
+    linewidth: 3
+    r_start: 63
+    r_end: 65
+    months: ["Apr", "May"]
+
+  #################################################################################
+  # River Ice Monitoring
+  #################################################################################
+  river_ice_monitoring:
+    type: "infill"
+    color: "river_ice_monitoring.critical_period"
+    linestyle: "-"
+    alpha: 0.5
+    linewidth: 3
+    r_start: 45
+    r_end: 60
+    months: ["Apr", "May", "Nov", "Dec"]
+
+  river_ice_monitoring:
+    type: "infill"
+    color: "river_ice_monitoring.critical_period"
+    linestyle: "-"
+    alpha: 0.2
+    linewidth: 3
+    r_start: 45
+    r_end: 60
+    months: ["Mar", "Apr", "May", "Nov", "Dec"]
+
+  river_ice_meteo_hydro:
+    type: "line"
+    color: "river_ice_monitoring.data"
+    linestyle: "-"
+    linewidth: 3
+    r_start: 57
+    r_end: 59
+    months: ["Mar","Apr", "May", "Nov", "Dec"]
+
+  remote_sensing_river_ice:
+    type: "line"
+    color: "river_ice_monitoring.data"
+    linestyle: "dashed"
+    linewidth: 3
+    r_start: 55
+    r_end: 57
+    months: ["Apr", "May", "Nov", "Dec"]
+
+  airborne_observations:
+    type: "line"
+    color: "river_ice_monitoring.data"
+    linestyle: "dotted"
+    linewidth: 3
+    r_start: 53
+    r_end: 55
+    months: ["Apr", "May"]
+
+  river_ice_monitoring_communication:
+    type: "line"
+    color: "river_ice_monitoring.communication"
+    linestyle: "dashed"
+    linewidth: 3
+    r_start: 47
+    r_end: 49
+    months: ["Mar","Apr", "May", "Nov", "Dec"]
+    
+  #################################################################################
+  # Planning and Improvement
+  #################################################################################
+  planning_and_improvement_critical:
+    type: "infill"
+    color: "planning_and_improvement.critical_period"
+    alpha: 0.5
+    linewidth: 3
+    r_start: 30
+    r_end: 40
+    months: ["Sep","Oct", "Nov", "Dec", "Jan", "Feb", "Mar"]
+  planning_and_improvement_reporting:
+    type: "line"
+    color: "planning_and_improvement.admin"
+    linestyle: "dashed"
+    linewidth: 3
+    r_start: 37
+    r_end: 39
+    months: ["Sep","Oct", "Nov", "Dec", "Jan", "Feb"]
+  planning_and_improvement_documentation:
+    type: "line"
+    color: "planning_and_improvement.admin"
+    linestyle: "dotted"
+    linewidth: 3
+    r_start: 35
+    r_end: 37
+    months: ["Sep","Oct", "Nov", "Dec", "Jan", "Feb"]
+  planning_and_improvement_process_improvement:
+    type: "line"
+    color: "planning_and_improvement.capacity"
+    linestyle: "dashdot"
+    linewidth: 5
+    r_start: 33
+    r_end: 35
+    months: ["Sep","Oct", "Nov", "Dec", "Jan", "Feb"]
+  planning_and_improvement_no_modifications:
+    type: "line"
+    color: "planning_and_improvement.block"
+    linestyle:  "dashdot"
+    linewidth: 5
+    r_start: 33
+    r_end: 35
+    months: ["Mar"]
+
+################################################################################
+# Plot Settings
+################################################################################
+plot_settings:
+  figsize:
+    plot: [18, 15]
+    observations: [12, 6]
+  titles:
+    plot: "Decision Calendars for the Chena River"
+    observations: "Observations"
+  legend:
+    loc: "lower center"            # Positioning is handled manually in the function
+    bbox: [0.0, -0.1]             # Starting x and y coordinates for the legends
+    fontsize: 16                   # Font size for legend entries
+    title_fontsize: 18             # Font size for legend headers
+    borderpad: 2
+    labelspacing: 1.2
+    facecolor: "white"             # Background color of the legends
+    edgecolor: "black"             # Border color of the legends
+
+################################################################################
+# Legend Groups
+################################################################################
+legend_groups:
+  Snow_Seasonal_Forecasting:
+    description: "Snow Seasonal Forecasting"
+    elements:
+      - type: space
+      - type: patch
+        color: "snow_forecasting.critical_period"
+        label: "Critical Period - Snow Seasonal"
+      - type: space
+      - type: line
+        color: "snow_forecasting.data"
+        linestyle: "-"
+        linewidth: 3
+        label: "Meteo and Hydro Stations"
+      - type: line
+        color: "snow_forecasting.data"
+        linestyle: "dotted"
+        linewidth: 3
+        label: "Large Domain Snow Products"
+      - type: line
+        color: "snow_forecasting.forecast"
+        linestyle: "-"
+        linewidth: 3
+        label: "Snow Based Seasonal Forecasts"
+      - type: line
+        color: "snow_forecasting.data"
+        linestyle: "dashdot"
+        linewidth: 3
+        label: "Temperature Outlook - CPEC"
+      - type: marker
+        color: "visualization.snow_survey"
+        marker: "v"
+        markersize: 10
+        linewidth: 3
+        label: "Snow Surveys"
+      - type: space
+      - type: line
+        color: "snow_forecasting.communication"
+        linestyle: "--"
+        linewidth: 5
+        label: "Snowpack Outlook"
+
+
+  Hydro_Shortterm_Outlook:
+    description: "Hydro Short-term Outlook"
+    elements:
+      - type: space
+      - type: patch
+        color: "hydrological_forecasting.critical_period"
+        label: "Critical Period - Hydro Short Term"
+      - type: space
+      - type: line
+        color: "hydrological_forecasting.data"
+        linestyle: "-"
+        linewidth: 3
+        label: "Meteo and Hydro Station"
+      - type: line
+        color: "hydrological_forecasting.data"
+        linestyle: "dashed"
+        linewidth: 3
+        label: "NWP Forecasts"
+      - type: line
+        color: "hydrological_forecasting.data"
+        linestyle: "dotted"
+        linewidth: 3
+        label: "Meteorologist (APRFC, AFG, CPC)"
+      - type: space
+      - type: line
+        color: "hydrological_forecasting.forecast"
+        linestyle: "dashed"
+        linewidth: 3
+        label: "CHPS Forecasts"
+      - type: line
+        color: "hydrological_forecasting.forecast"
+        linestyle: "dotted"
+        linewidth: 3
+        label: "HEFS Forecasts"
+      - type: line
+        color: "hydrological_forecasting.forecast"
+        linestyle: "dashdot"
+        linewidth: 3
+        label: "1-2 Week Outlook (GEFS, ECWMF, NBM)"
+      - type: space
+      - type: line
+        color: "hydrological_forecasting.communication"
+        linestyle: "dotted"
+        linewidth: 3
+        label: "NWS APRFC Portal"
+      - type: line
+        color: "hydrological_forecasting.communication"
+        linestyle: "dashed"
+        linewidth: 3
+        label: "Event Based - Broad Stakeholder Comms"
+      - type: line
+        color: "hydrological_forecasting.communication"
+        linestyle: "dashdot"
+        linewidth: 3
+        label: "USACE Coordination and Comms"
+      
+
+  River_Ice_Monitoring:
+    description: "River Ice Monitoring"
+    elements:
+      - type: space
+      - type: patch
+        color: "river_ice_monitoring.critical_period"
+        label: "Critical Period - River Ice"
+      - type: space
+      - type: line
+        color: "river_ice_monitoring.data"
+        linestyle: "-"
+        linewidth: 3
+        label: "Meteo and Hydro Data"
+      - type: line
+        color: "river_ice_monitoring.data"
+        linestyle: "dashed"
+        linewidth: 3
+        label: "Remote Sensing"
+      - type: line
+        color: "river_ice_monitoring.data"
+        linestyle: "dotted"
+        linewidth: 3
+        label: "Airborne Observations"
+      - type: space
+      - type: line
+        color: "river_ice_monitoring.communication"
+        linestyle: "dashed"
+        linewidth: 3
+        label: "River Ice Monitoring Communication"
+
+  Planning_and_Improvement:
+    description: "Planning and Improvement"
+    elements:
+      - type: space
+      - type: patch
+        color: "planning_and_improvement.critical_period"
+        label: "Critical Period - Planning and Improvement"
+      - type: line
+        color: "planning_and_improvement.admin"
+        linestyle: "dashed"
+        linewidth: 3
+        label: "Reporting on Hydrometric Data"
+      - type: line
+        color: "planning_and_improvement.admin"
+        linestyle: "dotted"
+        linewidth: 3
+        label: "Document Breakup + Community Information"
+      - type: line
+        color: "planning_and_improvement.capacity"
+        linestyle: "dashdot"
+        linewidth: 5
+        label: "Capacity for Process Improvement"
+      - type: line
+        color: "planning_and_improvement.block"
+        linestyle: "dashdot"
+        linewidth: 5
+        label: "No Upgrades Ahead of Operations"
